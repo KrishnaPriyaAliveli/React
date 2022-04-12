@@ -1,14 +1,16 @@
 import {useState} from 'react';
 import './DisplayCard.css';
-const Display = (props) => {
+import {useNavigate} from 'react-router-dom';
+const Display = (props) => { 
+  const navigate = useNavigate();
   const [favItem, setFavItem] = useState(false);
   const deleteHandler = (id) => {
    props.OndeleteHandler(id);
-};
-const addToFavourite = (id) => {
-  setFavItem(!favItem);
-  props.OnAddfavourite(id);
-};
+   }; 
+  const addToFavourite = (id) => {
+   setFavItem(!favItem);
+   props.OnAddfavourite(id);
+  };
 const heartClass = favItem ? 'fa fa-heart' : 'fa fa-heart-o';    
     return(
         <div className = "card">
@@ -29,6 +31,7 @@ const heartClass = favItem ? 'fa fa-heart' : 'fa fa-heart-o';
            </a>
            <div>
            <button className="heart" onClick={() => addToFavourite(props.id)}><i className={heartClass}></i></button>
+           <button className="edit" onClick={() => {navigate(`/edit_User/${props.id}`)}}><i className = "fa fa-edit"></i></button>
            <button className="delete" value= {props.id} onClick={() => deleteHandler(props.id)}><i className="fa fa-trash-o"></i></button>
            </div>
         </div>

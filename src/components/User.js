@@ -1,7 +1,8 @@
 import {useState} from 'react';
 import  Display from'./DisplayCard.js';
-const User = (props) => {
-    const Users = props.Data;
+import { useSelector } from 'react-redux';
+const User = () => {
+  const Users = useSelector(state=>state.userList);
     const [userData, setuserData] = useState(Users);
     const [favData, setFavData] = useState([]);
      const deleteDataHandler = (id) => {
@@ -21,13 +22,14 @@ const User = (props) => {
     return(
         <div>
             { userData.map((el,index) => (
-        <Display name = {el.username}
+        <Display name = {el.name}
         email = {el.email}
         phnNumber={el.phone}
         website={el.website}
         id={el.id}
         OndeleteHandler={deleteDataHandler}
-        OnAddfavourite={addFavourite}>
+        OnAddfavourite={addFavourite}
+        >
            </Display> 
       ))}
         </div>

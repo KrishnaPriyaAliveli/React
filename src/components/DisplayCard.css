@@ -11,22 +11,26 @@
       font-size: 18px;
     }
   button {
-    border: none;
+    border: 1px;
     outline: 0;
     display: inline-block;
     padding: 8px;
     text-align: center;
     cursor: pointer;
-    width: 50%;
+    width: 30%;
     font-size: 18px;
   }
   .heart {
       background-color: white;
       color: red;
   }
+  .edit {
+    background-color: white;
+    color: black;
+  }
   .delete {
-      background-color: black;
-      color: white;
+      background-color: white;
+      color: black;
   }
   a {
     display: inline-block;
